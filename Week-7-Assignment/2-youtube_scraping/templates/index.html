@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<title>Search Page</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">Youtube Scraping</h1>
+
+    <div class="form">
+        <form action="/getContent" method="POST">
+            <label for="operation">Extract the</label>
+            <select id="operation" name="operation">
+                <option value="videoURL">video URL</option>
+                <option value="urlofThumbnails">URL of the video thumbnails</option>
+                <option value="theTitle">title</option>
+                <option value="numberOfViews">number of views</option>
+                <option value="timeOfPosting">time of posting</option>
+            </select>
+            <input type="text" name="numberOfVideos" id="numberOfVideos" placeholder="enter the number of videos">
+            <input type="submit" value="Get the data">
+        </form>
+    </div>
+</div>
+{% endblock %}
